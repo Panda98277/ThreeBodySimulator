@@ -14,14 +14,15 @@ FetchContent_MakeAvailable(SFML)
 
 include_directories(.)
 
-add_executable(main src/main.cpp src/ThreeBodySimulator.cpp)
+add_executable(main src/main.cpp src/ThreeBodySimulator.cpp src/pch.cpp)
 target_compile_features(main PRIVATE cxx_std_17)
 target_link_libraries(main PRIVATE SFML::Graphics)
+target_precompile_headers(main PRIVATE src/pch.h)
 
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 set(CMAKE_CXX_FLAGS_RELEASE "-Ofast")
-set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -O3 -Wall")
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3 -Wall")
+# set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -O3 -Wall")
+# set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3 -Wall")
