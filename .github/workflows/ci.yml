@@ -17,7 +17,6 @@ jobs:
         platform:
         - { name: Windows VS2019, os: windows-2019  }
         - { name: Windows VS2022, os: windows-2022  }
-        - { name: Linux GCC,      os: ubuntu-latest }
         config:
         - { name: Shared, flags: -DBUILD_SHARED_LIBS=TRUE }
         - { name: Static, flags: -DBUILD_SHARED_LIBS=FALSE }
